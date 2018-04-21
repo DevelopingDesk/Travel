@@ -107,7 +107,7 @@
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>Reports<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{route('daily.report')}}">Daily Record</a>
+                                    <a href="{{route('daily.report')}}">Daily Records</a>
                                 </li>
                                 
                             </ul>
