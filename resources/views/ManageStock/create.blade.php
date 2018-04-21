@@ -1,24 +1,56 @@
 @extends('Dashboard/dashboard')
 
 @section('content')
-@include('message')
+<style> 
+input[type=text] {
+   
+    padding: 12px 20px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid lightblue;
+    
+}
+input[type=number] {
+   
+    padding: 12px 20px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid lightblue;
+    
+}
+input[type=date] {
+   
+    padding: 12px 20px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid lightblue;
+    
+}
+</style>
+<div class="row">
+  
+
 <div class="col-md-12">
+  @include('message')
 <form method="post" action="{{route('store.stock')}}">
 <h3 style="text-align: center; color: blue;text-shadow: green">Data Entry</h3>
 	
 {{csrf_field()}}
 
-	<div class="col-md-3">
-		<input type="date" name="date" class="form-control" required="true">
+	<div class="col-md-3" style="margin-top: -16px">
+		<input type="date" name="date"  required="true">
 	</div>
   <div class="col-md-3">
-    <input type="text" name="numbershamar" placeholder="number shamar" class="form-control" required="true">
+    <input type="text" name="numbershamar" placeholder="number shamar"  required="true">
   </div>
     <div class="col-md-3">
-    <input type="text" name="passname" placeholder="Passenger Name" class="form-control" required="true">
+    <input type="text" name="passname" placeholder="Passenger Name"  required="true">
   </div>
    <div class="col-md-3">
-    <input type="text" name="sector" placeholder="Enter Sector" class="form-control" required="true">
+    <input type="text" name="sector" placeholder="Enter Sector"  required="true">
   </div>
   <br>
   <br>
@@ -27,13 +59,13 @@
     
   
 	<div class="col-md-3">
-		<input type="text" name="ticketnumber" class="form-control" placeholder="Enter Ticket Number" required="true">
+		<input type="text" name="ticketnumber"  placeholder="Enter Ticket Number" required="true">
 	</div>
 	<input type="hidden" name="company_id" value="{{$companyid}}">
-	<div class="col-md-2">
-		<input type="number" name="amount" class="form-control" placeholder="Enter Amount" required="true">
+	<div class="col-md-3">
+		<input type="number" name="amount"  placeholder="Enter Amount" required="true">
 	</div>
-	<div class="col-md-2">
+	<div class="col-md-3" style="margin-top: 16px">
 		<select class="form-control" name="amount_type">
 			<option>
 				Cash
@@ -64,7 +96,31 @@
 
 </form>
 </div>
-
+</div>
+<br>
+<div class="row" style="margin-top: 40px">
+  <center><h2 style="color: red">Report Filter</h2></center>
+  <form method="get" action="{{route('datewise.report')}}">
+    
+ 
+  <div class="col-md-12">
+    <div class="col-md-3">
+    <input type="date" name="first" required="true">
+      
+    </div>
+    <div class="col-md-3">
+    <input type="date" name="second"  required="true">
+      
+    </div>
+<div class="col-md-2" style="margin-top: 30px">
+  <button class="btn btn-success">Filter</button>
+    
+  </div>
+  </div>
+  <input type="hidden" name="companyid" value="{{$companyid}}">
+  
+   </form>
+</div>
 
 <button class="btn btn-primary pull-right" onclick="printContent('divide')">print</button>
 <div class="col-md-12" >

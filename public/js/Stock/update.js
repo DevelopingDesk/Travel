@@ -4,7 +4,7 @@ $('input:checkbox').change(function(){
 var orderid=this.value;
 
 
-alert(orderid);
+
 
 $.ajax({
 method:'POST',

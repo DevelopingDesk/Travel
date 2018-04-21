@@ -38,6 +38,9 @@ Route::get('delete/create/refund/{id}','RefundController@delete')->name('refund.
 Route::get('create/report/daily','ReportController@create')->name('daily.report');
 Route::post('post/report/daily','ReportController@daily')->name('daily.reportview');
 Route::post('ok/done/confirm','ReportController@ok')->name('ok.done');
+//date wise report
+Route::get('datewise/report','ReportController@dateWise')->name('datewise.report');
+
 //ticket entry
 Route::get('ticket/entry/form','StockController@entry')->name('ticket.entry');
 Route::post('ticket/entry/form/post','StockController@postEntry')->name('ticket.entry.post');
