@@ -47,7 +47,9 @@ if($compname!=null)
 {
 $default=$compname->company->name;
 }
-$total=Stock::where('company_id',$request->compnayid)->sum('amount');
+
+$total=Stock::where('company_id','=',$request->companyid)->sum('amount');
+
 $Check=Check::where('company_id',$request->compnayid)->sum('check_amount');
 $balance=$total-$Check;
         $stk=Stock::where('company_id','=',$request->companyid)->whereBetween('date', [$request->first, $request->second])->get();
