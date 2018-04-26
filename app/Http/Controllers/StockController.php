@@ -25,7 +25,7 @@ $total=Stock::where('company_id',$id)->sum('amount');
 $Check=Check::where('company_id',$id)->sum('check_amount');
 $balance=$total-$Check;
 
-return view('ManageStock.create')->withstock($stk)->withcompanyid($id)->withtotal($balance)->withcompname($default);
+return view('ManageStock.create')->withstock($stk)->withcompanyid($id)->withtotal($balance)->withcompname($default)->withdeliverdcheck($Check);
 
     }
    
@@ -44,7 +44,8 @@ $stk->pass_name=$request->passname;
 $stk->sector=$request->sector;
 $stk->number_shamar=$request->numbershamar;
 $stk->amount=$request->amount;
-$stk->refund=$request->amount;
+//$stk->refund=$request->amount;
+$stk->refund=0;
 $stk->amount_type=$request->amount_type;
 $stk->ticket_number=$request->ticketnumber;
 $stk->save();

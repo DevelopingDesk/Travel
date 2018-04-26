@@ -19,6 +19,7 @@ $stk=Stock::where('ticket_number',$request->ticketnumber)->first();
 //dd($stk);
 
 $before=$stk->amount;
+$stk->refund=$request->amount;
 //$stk->refund=$before;
 $balc=$before-$request->amount;
 $stk->amount=$balc;

@@ -145,7 +145,7 @@ input[type=date] {
                 <th>Amount</th>
                 <th> Amount Type</th>
                 <th>Confirmation</th>
-                <th>Original Amount</th>
+                <th>Refunded Amount</th>
                         @if(Auth::User()->hasrole('admin'))
                 
                 <th>Delete</th>
@@ -213,11 +213,12 @@ input[type=date] {
                @endif
             </tr>
            @endforeach
+
         </tbody>
 
     </table>
   
-   
+    <h2 style="text-align: right;color: blue">Total Paid Check: <strong style="color: red"> {{$deliverdcheck}} Rs</strong> </h2>
    
     
     
