@@ -217,9 +217,69 @@ input[type=date] {
         </tbody>
 
     </table>
+    @if($check !=null)
+    <div class="row">
+
+      <div class="col-md-12">
+        <h2 style="text-align: center;color: blue"> {{$compname}}: <strong style="color: red"> Paid Checks:{{$deliverdcheck}} Rs</h2>
+<table id="checkdetail" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              <th>Serial Number</th>
+               <th>Date</th>
+                <th>Company Name</th>
+                <th>Check Number</th>
+                <th>Voture Number</th>
+                <th>Bank Name</th>
+               
+                <th>Check Amount</th>
+                <th>Check Type</th>
+                
+                       
+            </tr>
+        </thead>
+       
+        <tbody>
+          @foreach($check as $cls)
+            <tr>
+
+                <td>{{$cls->id}}</td>
+                <td>{{$cls->date}}</td>
+
+                <td>{{$cls->company->name}}</td>
+                <td>{{$cls->check_number}}</td>
+                <td>{{$cls->voture_number}}</td>
+                <td>{{$cls->bank_name}}</td>
+                @if($cls->check_amount==0)
+
+                <td>Refunded</td>
+                @else
+                <td>{{$cls->check_amount}}</td>
+
+                @endif
+               
+                <td>{{$cls->check_type}}</td>
+                           
+                
+             
+
+             
+            </tr>
+           @endforeach
+        </tbody>
+    </table>
+
+<script type="text/javascript">
   
-    <h2 style="text-align: right;color: blue">Total Paid Check: <strong style="color: red"> {{$deliverdcheck}} Rs</strong> </h2>
-   
+  $(document).ready(function() {
+    $('#checkdetail').DataTable();
+} );
+</script>
+      </div>
+      
+    </div>
+  @endif
+  
     
     
        

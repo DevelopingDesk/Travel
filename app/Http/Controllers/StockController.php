@@ -12,6 +12,7 @@ class StockController extends Controller
 {
 	
    public function create($id){
+    $date_check=null;
     	$default="pending";
 $stk=Stock::where('company_id',$id)->get();
 $compname=Stock::where('company_id',$id)->first();
@@ -25,7 +26,7 @@ $total=Stock::where('company_id',$id)->sum('amount');
 $Check=Check::where('company_id',$id)->sum('check_amount');
 $balance=$total-$Check;
 
-return view('ManageStock.create')->withstock($stk)->withcompanyid($id)->withtotal($balance)->withcompname($default)->withdeliverdcheck($Check);
+return view('ManageStock.create')->withstock($stk)->withcompanyid($id)->withtotal($balance)->withcompname($default)->withdeliverdcheck($Check)->withcheck($date_check);
 
     }
    
