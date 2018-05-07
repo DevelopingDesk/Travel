@@ -15,6 +15,22 @@ return view('Check.create')->withcompanyid($id)->withchecks($check);
 
 
     }
+    public function approve(){
+
+    	$id=$_POST['orderid'];
+//return response($id);
+$stk=Check::where('id',$id)->first();
+if($stk->approve==null){
+$stk->approve=1;
+
+}
+else{
+
+   $stk->approve=null;
+}
+$stk->update();
+return response($stk);
+    }
     public function refund($id){
 
 $check=Check::where('id',$id)->first();

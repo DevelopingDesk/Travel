@@ -108,6 +108,10 @@
               
                <th>Action</th>
                 @endif
+                        @if(Auth::User()->hasrole('admin'))
+
+                <th>Approve</th>
+                @endif
             </tr>
         </thead>
        
@@ -138,6 +142,14 @@
                 <a href="{{route('delete.check',$cls->id)}}" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</a>
                 
                </td>
+               @if(Auth::User()->hasrole('admin'))
+@if($cls->approve=null)
+                <td><input type="checkbox" name="checkapprove" value="{{$cls->id}}"></td>
+                @else
+                <td>
+                <input type="checkbox" name="" checked="true" ="true" value="{{$cls->id}}"></td>
+                @endif
+                @endif
 @endif
               
                 
@@ -159,6 +171,14 @@
 <script type="text/javascript">
 var token='{{Session::token()}}';
 var add='{{route('edit.check')}}';
+
+</script> 
+<script type="text/javascript" src="{{asset('js/Stock/update.js')}}"></script>
+
+<script type="text/javascript">
+var token='{{Session::token()}}';
+var add='{{route('approve.check')}}';
+
 
 </script> 
 </div>

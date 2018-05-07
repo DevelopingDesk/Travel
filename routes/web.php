@@ -30,6 +30,7 @@ Route::post('edit/check','CheckController@update')->name('edit.check');
 Route::get('delete/check/{id}','CheckController@delete')->name('delete.check');
 //refund check
 Route::get('refund/check/{id}','CheckController@refund')->name('refund.check');
+Route::post('done/check','CheckController@approve')->name('approve.check');
 //refund portal
 Route::get('create/refund/{id}','RefundController@create')->name('refund.create');
 Route::post('post/create/refund','RefundController@store')->name('refund.store');
