@@ -143,11 +143,11 @@
                 
                </td>
                @if(Auth::User()->hasrole('admin'))
-@if($cls->approve=null)
-                <td><input type="checkbox" name="checkapprove" value="{{$cls->id}}"></td>
-                @else
-                <td>
-                <input type="checkbox" checked="true" value="{{$cls->id}}"></td>
+@if($cls->approve!=Null)
+<td> <input type="checkbox"  value="{{$cls->id}}" id="status" name="status" checked="true"></td>
+@else
+
+                <td><input type="checkbox" type="checkbox" value="{{$cls->id}}" id="status" name="status"  ></td>
                 @endif
                 @endif
 @endif
