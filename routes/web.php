@@ -35,6 +35,9 @@ Route::post('done/check','CheckController@approve')->name('approve.check');
 Route::get('create/refund/{id}','RefundController@create')->name('refund.create');
 Route::post('post/create/refund','RefundController@store')->name('refund.store');
 Route::get('delete/create/refund/{id}','RefundController@delete')->name('refund.delete');
+
+Route::post('done/refund','RefundController@approve')->name('approve.refund');
+
 //reports 
 Route::get('create/report/daily','ReportController@create')->name('daily.report');
 Route::post('post/report/daily','ReportController@daily')->name('daily.reportview');

@@ -7,6 +7,22 @@ use App\Refund;
 use App\Stock;
 class RefundController extends Controller
 {
+	 public function approve(){
+
+    	$id=$_POST['orderid'];
+//return response($id);
+$stk=Refund::where('id',$id)->first();
+if($stk->approve==Null){
+$stk->approve=1;
+
+}
+else{
+
+   $stk->approve=Null;
+}
+$stk->update();
+return response('ok');
+    }
     
     public function create($id){
 $all=Refund::all();

@@ -147,7 +147,7 @@
 <td> <input type="checkbox"  value="{{$cls->id}}" id="status" name="status" checked="true"></td>
 @else
 
-                <td><input type="checkbox" type="checkbox" value="{{$cls->id}}" id="status" name="status"  ></td>
+                <td><input type="checkbox" value="{{$cls->id}}" id="status" name="status"  ></td>
                 @endif
                 @endif
 @endif

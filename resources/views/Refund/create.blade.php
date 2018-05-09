@@ -43,6 +43,10 @@
                 <th>Delete</th>
                
                 @endif
+                 @if(Auth::User()->hasrole('admin'))
+
+                <th>Approve</th>
+                @endif
             </tr>
         </thead>
        
@@ -57,7 +61,14 @@
                         @if(Auth::User()->hasrole('admin'))
                
                <td><a href="{{route('refund.delete',$cls->id)}}" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</a></td>
-              
+                    @if(Auth::User()->hasrole('admin'))
+@if($cls->approve!=Null)
+<td> <input type="checkbox"  value="{{$cls->id}}" id="status" name="status" checked="true"></td>
+@else
+
+                <td><input  type="checkbox" value="{{$cls->id}}" id="status" name="status"  ></td>
+                @endif
+                @endif
              
 @endif
              
@@ -72,6 +83,14 @@
     $('#example').DataTable();
 } );
 </script>
+<script type="text/javascript" src="{{asset('js/Stock/update.js')}}"></script>
+
+<script type="text/javascript">
+var token='{{Session::token()}}';
+var add='{{route('approve.refund')}}';
+
+
+</script> 
 
 </div>
 	</div>
