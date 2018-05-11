@@ -25,7 +25,7 @@ return response('ok');
     }
     
     public function create($id){
-$all=Refund::all();
+$all=Refund::where('id',$id)->get();
 return view('Refund.create')->withrefund($all);
 
     }
