@@ -4,10 +4,14 @@
 <form method="post" action="{{route('refund.store')}}">
 	{{csrf_field()}}
 <div class="row">
+  <input type="hidden" name="companyid" value="{{$companyid}}">
 	<div class="col-md-12">
 		<div class="col-md-3">
 		<input type="text" name="ticketnumber" class="form-control" placeholder="Enter Ticket Number" required="true">
 	</div>
+  <div class="col-md-3">
+    <input type="date" name="datepicker" class="form-control" placeholder="Enter Ticket date" required="true">
+  </div>
 
 		<div class="col-md-3">
 		<input type="number" name="amount" class="form-control" placeholder="Enter Amount" required="true">

@@ -16,7 +16,7 @@ class CreateStocksTable extends Migration
         Schema::create('stocks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('number_shamar');
-$table->string('date');
+            $table->string('date');
             $table->string('pass_name');
 
             $table->string('ticket_number')->unique();

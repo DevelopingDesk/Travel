@@ -279,6 +279,64 @@ input[type=date] {
       
     </div>
   @endif
+
+
+
+   @if($refund !=null)
+    <div class="row">
+
+      <div class="col-md-12">
+        <h2 style="text-align: center;color: blue"> {{$compname}}: <strong style="color: red"> Refunded Amounts:{{$refundamount}} Rs</h2>
+<table id="checkdetail2" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              <th>Serial Number</th>
+               <th>Date</th>
+                <th>Company Name</th>
+                <th>Ticket Number</th>
+                <th>Passenger Name</th>
+                <th>Refund Amount</th>
+               
+             
+                
+                       
+            </tr>
+        </thead>
+       
+        <tbody>
+          @foreach($refund as $cls)
+            <tr>
+
+                <td>{{$cls->id}}</td>
+                <td>{{$cls->date}}</td>
+
+                <td>{{$cls->company->name}}</td>
+                <td>{{$cls->ticket_number}}</td>
+                <td>{{$cls->pass_name}}</td>
+                <td>{{$cls->refund_amount}}</td>
+               
+                           
+                
+             
+
+             
+            </tr>
+           @endforeach
+        </tbody>
+    </table>
+
+<script type="text/javascript">
+  
+  $(document).ready(function() {
+    $('#checkdetail2').DataTable();
+} );
+</script>
+      </div>
+      
+    </div>
+  @endif
+
+
   
     
     
